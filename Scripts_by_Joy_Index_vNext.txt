@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base target="_self">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scripts by Joy | Joy Social Studio</title>
+  <style>
+    :root{--bg:#0d1410;--panel:#1b271f;--green:#1fc318;--mint:#8be67e;--white:#f8faf7;--muted:#b9c7bb;--border:rgba(255,255,255,.13)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font:16px/1.55 Arial,Helvetica,sans-serif}a{color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}.container{width:min(calc(100% - 40px),1320px);margin:auto}
+    .hero{position:relative;min-height:760px;overflow:hidden;background:radial-gradient(ellipse at 82% 65%,rgba(51,122,61,.28),transparent 48%),radial-gradient(ellipse at 70% 15%,rgba(53,86,59,.18),transparent 45%),linear-gradient(120deg,#0a100c,#14241a)}
+    .hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.25;background:repeating-linear-gradient(120deg,transparent 0 110px,rgba(255,255,255,.055) 111px,transparent 112px)}
+    .hero:after{content:"";position:absolute;width:700px;height:700px;border:1px solid rgba(139,230,126,.09);border-radius:50%;right:-220px;top:80px;pointer-events:none}
+    .nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px;padding:14px 30px;background:rgba(31,37,32,.9);border:1px solid var(--border);border-radius:60px}
+    .logo{font-size:25px;font-weight:900;letter-spacing:-1.3px;white-space:nowrap}.logo span{color:var(--green)}.nav-links{display:flex;align-items:center;gap:30px}.nav-links a{font-size:15px;text-decoration:none;white-space:nowrap}.nav-links a:hover{color:var(--mint)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 28px;background:var(--green);color:#fff;border:0;border-radius:40px;font-weight:700;text-decoration:none;transition:transform .2s,background .2s}.btn:hover{background:#21ac1b;transform:translateY(-2px)}.btn:disabled{opacity:.55;cursor:wait;transform:none}.btn-dark{background:#29372d;border:1px solid var(--border)}
+    .hero-content{position:relative;z-index:2;display:grid;grid-template-columns:1.45fr .55fr;align-items:end;gap:55px;padding:105px 0 100px}.eyebrow{color:var(--mint);font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase}
+    h1{max-width:850px;margin:28px 0 25px;font-size:clamp(48px,6vw,90px);line-height:1.09;letter-spacing:-4px}h1 span{color:var(--mint)}.hero-description{max-width:610px;font-size:19px;color:#e0e8df}.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-top:36px}.hero-note{font-size:14px;color:#d5e3d5}.hero-side{padding:0 0 20px 25px;border-left:2px solid var(--green)}.hero-side strong{display:block;font-size:45px;line-height:1.1}.hero-side p{max-width:260px;color:#d4dfd5}
+    section.content-section{padding:100px 0;scroll-margin-top:20px}.section-title{max-width:850px;margin:20px 0;font-size:clamp(35px,4vw,56px);line-height:1.15;letter-spacing:-2px}.section-intro{max-width:780px;color:var(--muted);font-size:18px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}.step-card,.form-card,.result-card{background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:22px;padding:30px}.step-number{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:#24452d;color:var(--mint);border-radius:50%;font-size:20px;font-weight:800}.step-card h3{font-size:23px;margin:22px 0 10px}.step-card p{color:var(--muted)}
+    .form-section{background:#121c15}.form-card{max-width:880px;margin:35px auto 0;padding:42px;background:var(--panel)}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.field{margin-bottom:22px}label{display:block;margin-bottom:9px;font-weight:700}input,select,textarea{width:100%;padding:15px 16px;background:#101a13;color:white;border:1px solid #425145;border-radius:10px;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--mint)}input::placeholder,textarea::placeholder{color:#94a396}select option{background:#17231a;color:white}textarea{resize:vertical;min-height:105px}.helper{color:var(--muted);font-size:13px;margin-top:7px}.full-button{width:100%;border-radius:10px}.hidden{display:none!important}
+    .result-card{max-width:880px;margin:35px auto 0;background:var(--panel)}.result-card h3{font-size:28px}.prompt-box{width:100%;min-height:320px;margin:20px 0;padding:18px;background:#0c140f;color:#e4eee5;border:1px solid #405544;border-radius:12px;font-size:13px;line-height:1.65}.button-row{display:flex;flex-wrap:wrap;gap:12px}.status{min-height:24px;margin-top:16px;color:var(--mint)}.notice{padding:17px;background:#23392a;border-radius:12px;color:#d9e9dc;margin-top:22px}.check-label{display:flex;gap:12px;align-items:flex-start;font-weight:400;color:#d9e7db}.check-label input{width:auto;margin-top:6px;flex-shrink:0}.privacy{margin-top:28px;padding-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}.privacy a,.social-link{color:var(--mint)}.about-section{background:radial-gradient(ellipse at 80% 50%,rgba(35,99,45,.18),transparent 50%),#0d1410}.about-content{max-width:850px}footer{padding:30px 0;border-top:1px solid var(--border)}.footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;color:var(--muted);font-size:14px}
+    @media(max-width:900px){.nav{flex-wrap:wrap;border-radius:24px}.nav-links{order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:18px}.hero-content{grid-template-columns:1fr;padding:85px 0}.hero-side{max-width:340px}.steps{grid-template-columns:1fr}h1{letter-spacing:-2px}}
+    @media(max-width:600px){.container{width:min(calc(100% - 28px),1320px)}.nav{padding:18px;gap:16px;margin-top:12px}.logo{font-size:22px}.nav>.btn{padding:11px 16px;font-size:13px}.nav-links{justify-content:flex-start;gap:14px 18px}.nav-links a{font-size:13px}.hero{min-height:auto}.hero-content{padding:75px 0 80px;gap:45px}h1{font-size:clamp(42px,11vw,65px);letter-spacing:-2px}.hero-description{font-size:16px}.hero-side strong{font-size:34px}section.content-section{padding:65px 0}.field-grid{grid-template-columns:1fr;gap:0}.form-card,.result-card,.step-card{padding:22px}.button-row .btn{width:100%}}
+  </style>
+</head>
+<body>
+<header class="hero" id="home"><div class="container">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="logo">Scripts <span>by Joy.</span></div>
+    <div class="nav-links">
+      <a href="#home" data-scroll="home">Home</a>
+      <a href="#how-it-works" data-scroll="how-it-works">How It Works</a>
+      <a href="#generate" data-scroll="generate">Generate Scripts</a>
+      <a href="#about" data-scroll="about">About Joy</a>
+    </div>
+    <a class="btn" href="#generate" data-scroll="generate">Get Started</a>
+  </nav>
+  <div class="hero-content"><div>
+    <div class="eyebrow">A FREE TOOL BY JOY SOCIAL STUDIO</div>
+    <h1>Turn local news into <span>content that connects.</span></h1>
+    <p class="hero-description">Find real stories in your market. Turn them into five service-aligned, ready-to-film Reel scripts that show customers why you're the local expert.</p>
+    <div class="hero-actions"><a class="btn" href="#generate" data-scroll="generate">Generate My 5 Scripts</a><span class="hero-note">Free to use · No email required</span></div>
+    <p class="helper" style="margin-top:18px">Create your prompt. Paste it into ChatGPT. Get up to five service-aligned video scripts.</p>
+  </div><div class="hero-side"><strong>5 scripts.</strong><p>One local market. Your actual service. A smarter way to show up online.</p></div></div>
+</div></header>
+
+<section class="content-section" id="how-it-works"><div class="container">
+  <div class="eyebrow">HOW IT WORKS</div><h2 class="section-title">Less guessing. More meaningful content.</h2>
+  <p class="section-intro">Local news becomes valuable content when it connects to what your customers need and what your business actually offers.</p>
+  <div class="steps">
+    <div class="step-card"><div class="step-number">01</div><h3>Tell us what you do</h3><p>Share your location, ideal customers, and main service or offer.</p></div>
+    <div class="step-card"><div class="step-number">02</div><h3>Get your research prompt</h3><p>We'll create a tailored prompt that asks ChatGPT to verify local stories and connect them to your service.</p></div>
+    <div class="step-card"><div class="step-number">03</div><h3>Turn stories into scripts</h3><p>Paste your prompt into ChatGPT to research your market and draft up to five ready-to-film video scripts.</p></div>
+  </div>
+</div></section>
+
+<section class="content-section form-section" id="generate"><div class="container">
+  <div class="eyebrow">FREE SCRIPT GENERATOR</div><h2 class="section-title">Your business. Your city. Your next five videos.</h2>
+  <p class="section-intro">Tell us what you offer. We'll build a personalized prompt that connects verified local news to the customers you want to reach.</p>
+  <div class="form-card"><form id="businessForm">
+    <div class="field-grid"><div class="field"><label for="business">Business name *</label><input id="business" required maxlength="150" placeholder="e.g. Company ABC"></div>
+    <div class="field"><label for="industry">Industry *</label><select id="industry" required><option value="">Select your industry</option><option>Real Estate</option><option>Home Renovation</option><option>Construction</option><option>Health & Wellness</option><option>Fitness</option><option>Restaurants & Hospitality</option><option>Beauty</option><option>Professional Services</option><option>Retail</option><option>Other</option></select></div></div>
+    <div class="field"><label for="location">City and service area *</label><input id="location" required maxlength="150" placeholder="e.g. Los Angeles, CA"></div>
+    <div class="field"><label for="audience">Ideal customers *</label><textarea id="audience" required placeholder="Who do you want to reach?"></textarea></div>
+    <div class="field"><label for="offer">Main service or offer *</label><textarea id="offer" required placeholder="Be specific. What service do you sell and what problem does it solve?"></textarea><p class="helper">This is the most important field. Every topic must connect to this service.</p></div>
+    <div class="field-grid"><div class="field"><label for="goal">Main goal</label><select id="goal"><option>Generate leads</option><option>Build local authority</option><option>Increase engagement</option><option>Get more bookings</option></select></div>
+    <div class="field"><label for="tone">Content tone</label><select id="tone"><option>Conversational</option><option>Professional and educational</option><option>Bold and opinion-driven</option></select></div></div>
+    <button class="btn full-button" type="submit">Create My Free Script Prompt</button><p class="helper" style="text-align:center">No payment. No email required.</p>
+  </form></div>
+  <div class="result-card hidden" id="result"><div class="eyebrow">YOUR PROMPT IS READY</div><h3>Now let's create your scripts.</h3>
+    <p>Copy the personalized prompt below. Open ChatGPT and paste it into a new conversation.</p>
+    <textarea id="prompt" class="prompt-box" readonly></textarea>
+    <div class="button-row"><button class="btn" type="button" id="copyButton">Copy My Prompt</button><a class="btn btn-dark" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT</a></div>
+    <p class="status" id="copyStatus" aria-live="polite"></p>
+    <p class="helper">A free tool by Joy Social Studio. For content strategy help, <a class="social-link" href="https://www.instagram.com/heyjjoi/" target="_blank" rel="noopener noreferrer">message @heyjjoi on Instagram</a>.</p>
+    <div class="notice">ChatGPT Free has usage limits. Always check the sources, dates, and facts before filming or publishing.</div>
+  </div>
+  <div class="result-card hidden" id="leadSection"><div class="eyebrow">STAY CONNECTED</div><h3>Want more content help?</h3>
+    <p>Your free prompt is yours to use. If you'd like more content tips and marketing ideas from Joy Social Studio, you can choose to subscribe below.</p>
+    <form id="leadForm"><div class="field-grid">
+      <div class="field"><label for="leadName">Your name</label><input id="leadName" maxlength="120" autocomplete="name"></div>
+      <div class="field"><label for="leadEmail">Business email</label><input id="leadEmail" type="email" maxlength="254" autocomplete="email"></div>
+    </div>
+    <div class="hidden" aria-hidden="true"><label for="website">Website</label><input id="website" tabindex="-1" autocomplete="off"></div>
+    <label class="check-label"><input type="checkbox" id="consent"><span>I agree to share my name, business email, and business details with Joy Lirio / Joy Social Studio so I can receive content tips and information about services. I can opt out at any time.</span></label>
+    <button class="btn" type="submit" id="saveButton">Yes, Keep Me Updated</button></form>
+    <p class="status" id="leadStatus" aria-live="polite"></p>
+    <p>Prefer Instagram? <a class="social-link" href="https://www.instagram.com/heyjjoi/" target="_blank" rel="noopener noreferrer">Message @heyjjoi</a></p>
+    <div class="privacy"><strong>Privacy Notice</strong>
+      <p>Your business information is used to build your personalized prompt in your browser. It is not automatically saved to our lead database.</p>
+      <p>If you choose to subscribe, your name, business email, business name, industry, and service area will be stored in a private Google Sheet managed by Joy Lirio. This information will be used to contact you about content tips and services.</p>
+      <p>You can request access, correction, deletion, or stop future emails by messaging <a href="https://www.instagram.com/heyjjoi/" target="_blank" rel="noopener noreferrer">@heyjjoi</a> on Instagram.</p>
+      <p>Subscribing is optional. You do not need to provide contact details to use Scripts by Joy.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="content-section about-section" id="about"><div class="container"><div class="about-content">
+  <div class="eyebrow">ABOUT JOY SOCIAL STUDIO</div><h2 class="section-title">Good content starts with knowing what matters.</h2>
+  <p class="section-intro">Scripts by Joy is a free content planning tool from Joy Social Studio.</p>
+  <p class="section-intro">It's designed to help local business owners find relevant stories, share their expertise, and create content that connects naturally to the services they offer.</p>
+  <a class="btn" href="https://www.instagram.com/heyjjoi/" target="_blank" rel="noopener noreferrer">Connect With Joy on Instagram</a>
+</div></div></section>
+<footer><div class="container footer-content"><div><strong>Scripts by Joy.</strong> A free tool by Joy Social Studio.</div><a class="social-link" href="https://www.instagram.com/heyjjoi/" target="_blank" rel="noopener noreferrer">@heyjjoi</a></div></footer>
+
+<script>
+  // Google Apps Script sandbox-safe navigation: never follow hash links.
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) section.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.querySelectorAll('[data-scroll]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      scrollToSection(link.getAttribute('data-scroll'));
+    });
+  });
+  const get = id => document.getElementById(id);
+  let details = {};
+
+  get('businessForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    details = {
+      business:get('business').value.trim(),
+      industry:get('industry').value,
+      location:get('location').value.trim(),
+      audience:get('audience').value.trim(),
+      offer:get('offer').value.trim(),
+      goal:get('goal').value,
+      tone:get('tone').value
+    };
+    if (!details.offer) { alert('Please enter your main service or offer.'); return; }
+
+    const prompt = `You are Scripts by Joy, a hyper-local news researcher and service-first video content strategist. This tool is created by Joy Social Studio.
+
+BUSINESS PROFILE
+Business: ${details.business}
+Industry: ${details.industry}
+Service area: ${details.location}
+Ideal customers: ${details.audience}
+MAIN SERVICE OR OFFER: ${details.offer}
+Primary goal: ${details.goal}
+Tone: ${details.tone}
+
+PRIMARY OBJECTIVE
+Research real, current, hyper-local news and turn it into video content that makes the business owner's specific service relevant to the ideal customer. The business owner—not Joy Social Studio—must be positioned as the local expert. The goal is to explain a real customer problem or decision through credible local news and demonstrate why the main service matters. Never force a weak link between a news item and an offer.
+
+RESEARCH REQUIREMENTS
+1. Research at least 10 recent candidate stories in or directly affecting the stated service area, if reliable web research is available.
+2. Prioritize publication or meaningful project updates in the last 30 days. Expand to 90 days only when needed, and label older information clearly.
+3. Use reliable local reporting, official government or municipal publications, planning records, business announcements, and primary sources where possible.
+4. Verify the story's date, direct URL, actual location, and current status. Distinguish proposed, approved, under construction, completed, and delayed projects.
+5. Do not invent sources, quotations, statistics, public sentiment, project outcomes, or facts. Do not treat permit totals, announcements, or sales figures as proof of consumer preferences or financial returns.
+6. If web research is unavailable, say so and do not pretend the stories are verified.
+
+SERVICE-FIRST STORY SELECTION
+For each candidate, consider these five factors and score each internally from 1 to 5:
+- Specific relevance to the service area
+- Direct relevance to the MAIN SERVICE OR OFFER
+- Direct relevance to the ideal customer's decisions or problems
+- Opportunity for a credible, practical expert insight
+- Timeliness and reliability of sources
+Reject stories scoring below 4/5 for either service relevance or customer relevance. Select up to five strongest verified qualifying stories. If fewer than five qualify, provide fewer. Do not pad the output with generic evergreen advice or loosely connected local headlines.
+
+EDITORIAL DIVERSITY AND STORY SELECTION — MANDATORY
+BEFORE WRITING ANY SCRIPTS, make a private selection matrix for all qualifying candidate stories with these columns: verified story, intended customer segment, central customer problem or decision, main service connection, and ONE unique practical takeaway. Compare all candidate rows. If two rows share substantially the same customer problem OR takeaway (for example, driveway restrictions and tree restrictions both lead to 'check outdoor modification rules before buying'), retain only the stronger story and replace the other with a verified, genuinely different one. Do this BEFORE drafting scripts, not merely after writing them. Every selected story must address a meaningfully DISTINCT customer problem, decision, or opportunity. Do not print the internal selection matrix unless the user asks.
+
+CUSTOMER SEGMENT BALANCE: Use the IDEAL CUSTOMERS field literally. Do not assume all buyers are investors, all luxury clients are investors, or all homeowners are sellers. If the audience includes several groups (such as buyers, sellers, and relocating clients), distribute stories across those groups when genuinely qualifying verified news exists. Do not force artificial balance or fabricate relevant stories. When the stated audience is one narrow group, focus on that group instead.
+
+Use a range of customer concerns only where the actual verified local news supports it. For example, a luxury real estate business might have separate stories about pricing, redevelopment, neighborhood lifestyle, ownership restrictions, or investment decisions. These are examples, not required categories. Do not invent news or force an unrelated story into a niche just to achieve variety.
+
+NICHE FIT IS STRICT: Do not assume every local development affects luxury buyers, every permit indicates renovation demand, or every local health story supports a wellness service. The connection must be direct, credible, and meaningful to this business's actual offer and target customer. If a story would work just as well for an unrelated business, reject or substantially refocus it.
+
+SOURCE PRECISION AND STATUS CHECKS
+For EACH selected story, supply the exact source title, publisher/official agency, original publication or update date, direct working URL if available, specific city/neighborhood, current project or policy status, and the date that status was checked when available. Distinguish proposed, under review, adopted, approved/permitted, under construction, delayed, and completed. An adopted plan does NOT prove construction approval; an approved project is NOT necessarily under construction. A permit count does NOT establish demand, sale price, or ROI. If you cannot verify a material claim, exclude it from the spoken script and flag the uncertainty in fact-check notes. Never invent URLs, dates, or verification.
+
+BATCH-LEVEL HOOK VARIETY
+Vary how the scripts begin. Choose from a specific customer mistake, a verified surprising fact, an overlooked opportunity, a concrete decision, a local change, or a misconception worth correcting. Avoid repeating opening formulas such as 'Are you...', 'Planning to...', or 'Thinking about...' across multiple scripts. Customer relevance comes first; local news provides the credible context. Do not exaggerate for a stronger hook.
+
+BATCH-LEVEL CTA VARIETY
+Make every CTA a specific next step tied to that story's customer decision and the selected content goal. Do not repeat 'Send us a message', 'Let's talk', or other generic closings. For leads, invite a qualified inquiry about that issue; for engagement, ask a meaningful local question; for authority, invite a focused question; for bookings, invite an appropriate inquiry. Do not invent free consultations, guides, offers, booking services, or promises.
+
+FINAL FIVE-SCRIPT EDITORIAL AUDIT
+First confirm the selected stories passed the prewriting uniqueness and customer-segment checks. After drafting, compare all scripts together and revise until: (1) the five customer concerns are genuinely distinct; (2) hook types and opening wording vary; (3) CTAs are specific and not repetitive; (4) each story is verified with source, date, place, and accurate status; (5) every story strongly fits the specific service AND audience; (6) each script demonstrates a different useful insight; (7) each spoken monologue is natural, 30–45 seconds, approximately 75–105 words; and (8) no unsupported outcomes, expertise, offers, or guarantees appear. If fewer than five pass, return fewer and briefly explain why.
+
+FOR EACH SELECTED STORY, USE THIS EXACT FOUR-SECTION FORMAT:
+
+STORY TITLE
+VERIFIED SOURCE: publication or agency, date, direct URL, and current status.
+WHY THIS STORY FITS THE OFFER: one precise sentence linking the verified news, target customer, and actual service.
+
+SECTION 1: TOPIC / CONTROVERSY
+Explain the specific local development and frame one compelling question. Avoid sensational claims and invented controversy.
+
+SECTION 2: PROBLEM / PUBLIC OPINION
+Write four short, labeled paragraphs:
+- CUSTOMER PROBLEM: What decision, risk, cost, need, or opportunity does the customer face?
+- VERIFIED LOCAL CONTEXT: What happened, where, and when? Use source-supported details.
+- PRACTICAL TRADEOFF: What should the customer weigh or understand?
+- FAIR COUNTERPOINT: What is an alternative explanation or perspective? Do not attribute opinions to residents or customers unless sourced.
+
+SECTION 3: CORE QUESTION
+Write one balanced, thought-provoking question that connects the local story to the customer's situation and the main service.
+
+SECTION 4: EXAMPLE SCRIPT
+Write ONE finished, ready-to-film, 30–45-second Instagram Reel script of approximately 75–105 SPOKEN words, at Hemingway Grade 5 reading level. It must sound like a knowledgeable local business owner speaking naturally to a prospective customer, not a news anchor, AI assistant, or generic advertisement.
+
+Follow this narrative arc, but DO NOT print these labels inside the script:
+1. CUSTOMER-FIRST HOOK: Open with a specific question, problem, mistake, decision, or opportunity relevant to the ideal customer and the MAIN SERVICE OR OFFER. Do NOT automatically open with a news headline, permit count, statistic, or development name. The opening should make the right customer think, 'This is about me.'
+2. VERIFIED LOCAL CONNECTION: Bring in the real local story naturally, using one or two verified details. Explain why it matters in this city or neighborhood. Do not exaggerate what the facts prove.
+3. SPECIFIC EXPERT INSIGHT: Give a useful, practical insight someone knowledgeable about this exact service could reasonably share. Explain WHAT to consider and WHY. Avoid vague advice such as 'do your research,' 'plan ahead,' or 'work with a professional.' Never invent credentials, client stories, personal experience, or capabilities.
+4. NATURAL SERVICE CONNECTION: Demonstrate how the actual offer helps with this customer decision. Show value through concrete reasoning, not hype or guarantees. If a meaningful service connection is not possible, reject the story.
+5. GOAL-ALIGNED CTA: For lead generation, invite a relevant DM, question, consultation inquiry, or discussion. For authority, invite a thoughtful question. For engagement, ask a specific local question. For bookings, invite an appropriate appointment inquiry. Do not claim booking or consultation options exist unless stated; use a general inquiry when unsure. Avoid 'follow for more,' 'contact us today,' or other generic closings.
+
+PRESENTATION OF SECTION 4
+Output ONLY the finished spoken monologue as one continuous script, in short, natural paragraphs. Do not include HOOK, BODY, CUSTOMER IMPACT, EXPERT INSIGHT, SERVICE CONNECTION, CLOSING, or CTA labels within it. No timestamps, shot lists, editing instructions, or stage directions inside the script. Keep it around 75–105 spoken words, with natural transitions, local place names, and no repetition or robotic phrasing. The owner should be able to read it directly into a camera without rewriting.
+
+AFTER THE SPOKEN SCRIPT, OUTSIDE SECTION 4, INCLUDE:
+WHY THIS SCRIPT BUILDS AUTHORITY: One sentence naming the specific professional insight demonstrated.
+SERVICE CONNECTION: One sentence describing how the actual offer relates to the customer's problem or decision.
+FACT-CHECK NOTES: Brief list of factual claims and sources that should be checked before filming. Flag any uncertainty clearly.
+
+MANDATORY QUALITY CHECK BEFORE PRESENTING EACH SCRIPT
+- Does the hook address a real customer concern, not merely announce the news?
+- Is the local story current, verified, accurately dated, and properly sourced?
+- Is the service connection direct and specific, rather than generic industry relevance?
+- Does the expert insight explain something actionable and credible?
+- Could an unrelated business deliver this script unchanged? If yes, rewrite it.
+- Does the script avoid unsupported claims, invented expertise, fabricated public opinion, and promises of results?
+- Is the CTA natural and appropriate for the stated business goal?
+- Is the spoken script a seamless 75–105-word monologue without structural labels?
+Revise any script that fails these checks before responding.
+
+FINAL CREDIT — REQUIRED, OUTSIDE ALL BUSINESS OWNER SCRIPTS
+At the very end of the response, after every script and fact-check note, print the following four lines exactly as written. Do not shorten or omit the handle, and do not include this credit inside any client's spoken video script:
+
+Scripts by Joy — a free tool by Joy Social Studio.
+Want help turning your video ideas into a content strategy?
+Follow or message @heyjjoi on Instagram.
+Instagram profile: https://www.instagram.com/heyjjoi/
+
+The handle is literally @heyjjoi (two j characters after hey). The profile URL is https://www.instagram.com/heyjjoi/ . Include BOTH independently, even if a link auto-formats or is not clickable. Do not replace this handle with the client's business handle. If your output format suppresses a URL, still display the plain-text handle @heyjjoi.
+
+Begin your research now.`;
+
+    get('prompt').value = prompt;
+    get('result').classList.remove('hidden');
+    get('leadSection').classList.remove('hidden');
+    setTimeout(() => scrollToSection('result'), 100);
+  });
+
+  get('copyButton').addEventListener('click', async function() {
+    const text = get('prompt').value;
+    try {
+      await navigator.clipboard.writeText(text);
+      get('copyStatus').textContent = 'Copied! Open ChatGPT and paste your prompt.';
+    } catch (error) {
+      get('prompt').focus();
+      get('prompt').select();
+      get('copyStatus').textContent = 'Copy the selected text manually.';
+    }
+  });
+
+  get('leadForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const status = get('leadStatus');
+    const button = get('saveButton');
+    const name = get('leadName').value.trim();
+    const email = get('leadEmail').value.trim();
+    if (!name || !email || !get('leadEmail').validity.valid) {
+      status.textContent = 'Please enter your name and a valid email address.';
+      return;
+    }
+    if (!get('consent').checked) {
+      status.textContent = 'Please check the consent box before submitting.';
+      return;
+    }
+    button.disabled = true;
+    status.textContent = 'Saving your details...';
+    google.script.run
+      .withSuccessHandler(function() {
+        status.textContent = 'Thank you! Your details have been saved.';
+        get('leadForm').reset();
+        button.disabled = false;
+      })
+      .withFailureHandler(function(error) {
+        status.textContent = 'Could not save: ' + (error && error.message ? error.message : 'Please try again.');
+        button.disabled = false;
+      })
+      .saveLead({name,email,business:details.business,industry:details.industry,location:details.location,consent:get('consent').checked,website:get('website').value});
+  });
+</script>
+</body>
+</html>
+
